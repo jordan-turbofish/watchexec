@@ -142,7 +142,7 @@ async fn send_event(
 		.send(
 			event,
 			match sig {
-				Signal::Interrupt | Signal::Terminate => Priority::Urgent,
+				Signal::Interrupt | Signal::Terminate | Signal::Hangup => Priority::Urgent,
 				_ => Priority::High,
 			},
 		)
