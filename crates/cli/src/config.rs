@@ -345,6 +345,8 @@ pub fn make_config(args: &Args, state: &State) -> Result<Config> {
 					&& !signal_map.contains_key(&Signal::Terminate))
 					|| (signals.contains(&Signal::Interrupt)
 						&& !signal_map.contains_key(&Signal::Interrupt))
+					|| (signals.contains(&Signal::Hangup)
+						&& !signal_map.contains_key(&Signal::Hangup))
 				{
 					debug!("unmapped terminate or interrupt signal, quit");
 					show_events();
