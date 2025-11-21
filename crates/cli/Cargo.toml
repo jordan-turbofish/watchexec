@@ -1,8 +1,11 @@
 [package]
 name = "watchexec-cli"
-version = "2.3.2"
+version = "2.3.3"
 
-authors = ["Félix Saparelli <felix@passcod.name>", "Matt Green <mattgreenrocks@gmail.com>"]
+authors = [
+	"Félix Saparelli <felix@passcod.name>",
+	"Matt Green <mattgreenrocks@gmail.com>",
+]
 license = "Apache-2.0"
 description = "Executes commands in response to file modifications"
 keywords = ["watcher", "filesystem", "cli", "watchexec"]
@@ -32,10 +35,10 @@ clearscreen = "4.0.1"
 dashmap = "6.1.0"
 dirs = "6.0.0"
 dunce = "1.0.4"
-foldhash = "0.1.4" # needs to be in sync with jaq's requirement
+foldhash = "0.1.4"                                          # needs to be in sync with jaq's requirement
 futures = "0.3.29"
 humantime = "2.1.0"
-indexmap = "2.7.1" # needs to be in sync with jaq's requirement
+indexmap = "2.7.1"                                          # needs to be in sync with jaq's requirement
 jaq-core = "2.1.0"
 jaq-json = { version = "1.1.0", features = ["serde_json"] }
 jaq-std = "2.1.0"
@@ -112,13 +115,7 @@ features = [
 
 [dependencies.tracing-subscriber]
 version = "0.3.6"
-features = [
-	"env-filter",
-	"fmt",
-	"json",
-	"tracing-log",
-	"ansi",
-]
+features = ["env-filter", "fmt", "json", "tracing-log", "ansi"]
 
 [target.'cfg(unix)'.dependencies]
 libc = "0.2.74"
@@ -141,7 +138,7 @@ path = "../bosion"
 
 [dev-dependencies]
 tracing-test = "0.2.4"
-uuid = { workspace = true, features = [ "v4", "fast-rng" ] }
+uuid = { workspace = true, features = ["v4", "fast-rng"] }
 rand = { workspace = true }
 
 [features]
@@ -171,17 +168,49 @@ pkg-fmt = "zip"
 maintainer = "Félix Saparelli <felix@passcod.name>"
 license-file = ["../../LICENSE", "0"]
 section = "utility"
-depends = "libc6, libgcc-s1" # not needed for musl, but see below
+depends = "libc6, libgcc-s1"                        # not needed for musl, but see below
 # conf-files = [] # look me up when config file lands
 assets = [
-	["../../target/release/watchexec", "usr/bin/watchexec", "755"],
-	["README.md", "usr/share/doc/watchexec/README", "644"],
-	["../../doc/watchexec.1.md", "usr/share/doc/watchexec/watchexec.1.md", "644"],
-	["../../doc/watchexec.1", "usr/share/man/man1/watchexec.1", "644"],
-	["../../completions/bash", "usr/share/bash-completion/completions/watchexec", "644"],
-	["../../completions/fish", "usr/share/fish/vendor_completions.d/watchexec.fish", "644"],
-	["../../completions/zsh", "usr/share/zsh/site-functions/_watchexec", "644"],
-	["../../doc/logo.svg", "usr/share/icons/hicolor/scalable/apps/watchexec.svg", "644"],
+	[
+		"../../target/release/watchexec",
+		"usr/bin/watchexec",
+		"755",
+	],
+	[
+		"README.md",
+		"usr/share/doc/watchexec/README",
+		"644",
+	],
+	[
+		"../../doc/watchexec.1.md",
+		"usr/share/doc/watchexec/watchexec.1.md",
+		"644",
+	],
+	[
+		"../../doc/watchexec.1",
+		"usr/share/man/man1/watchexec.1",
+		"644",
+	],
+	[
+		"../../completions/bash",
+		"usr/share/bash-completion/completions/watchexec",
+		"644",
+	],
+	[
+		"../../completions/fish",
+		"usr/share/fish/vendor_completions.d/watchexec.fish",
+		"644",
+	],
+	[
+		"../../completions/zsh",
+		"usr/share/zsh/site-functions/_watchexec",
+		"644",
+	],
+	[
+		"../../doc/logo.svg",
+		"usr/share/icons/hicolor/scalable/apps/watchexec.svg",
+		"644",
+	],
 ]
 
 [package.metadata.generate-rpm]
